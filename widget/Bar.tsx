@@ -1,19 +1,30 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk4"
+import Hyprland from 'gi://AstalHyprland';
 import { Variable } from "astal"
 
 const time = Variable("").poll(1000, "date")
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export default function Bar(monitor: Gdk.Monitor, hyprland: Hyprland) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
     return <window
         visible
         cssClasses={["Bar"]}
-        gdkmonitor={gdkmonitor}
+        gdkmonitor={monitor}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         anchor={TOP | LEFT | RIGHT}
         application={App}>
         <centerbox cssName="centerbox">
+            <box halign={Gtk.Align.START}>
+                {hyprland.get_workspaces().reverse().map(workspace =>(
+                <button
+                        onClicked={() => workspace.focus()}
+                        label={workspace.get_name()}
+                />
+                
+                ))}
+            </box>
+
             <button
                 onClicked="echo hello"
                 hexpand
