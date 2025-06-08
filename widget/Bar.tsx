@@ -11,7 +11,6 @@ export type Props = {
 
 export default function Bar(monitor: Gdk.Monitor, hyprland: Hyprland) {
     const { TOP, LEFT, RIGHT } = Astal.WindowAnchor;
-
     return (
         <window
             visible
