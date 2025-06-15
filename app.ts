@@ -17,12 +17,14 @@ function main() {
         bars.set(gdkmonitor, Bar(gdkmonitor, hyprland));
     });
 
-    App.connect('monitor-removed', (_, gdkmonitor) => {
+    App.connect('monitor-invalidate', (_, gdkmonitor) => {
         bars.get(gdkmonitor)?.destroy();
         bars.delete(gdkmonitor);
     });
 }
 App.start({
+    icons: '/usr/share/icons',
+    iconTheme: 'Dracula',
     css: style,
     main: main,
 });
