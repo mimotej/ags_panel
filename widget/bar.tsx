@@ -1,7 +1,8 @@
 import { App, Astal, Gtk, Gdk } from 'astal/gtk4';
 import Hyprland from 'gi://AstalHyprland';
 import { Variable } from 'astal';
-import { LeftBar } from './LeftBar';
+import { LeftBar } from './left_bar';
+import { CenterBar } from './center_bar';
 
 const time = Variable('').poll(1000, 'date');
 export type Props = {
@@ -22,14 +23,7 @@ export default function Bar(monitor: Gdk.Monitor, hyprland: Hyprland) {
         >
             <centerbox cssName="centerbox">
                 <LeftBar monitor={monitor} hyprland={hyprland} />
-                <button
-                    onClicked="echo hello"
-                    hexpand
-                    halign={Gtk.Align.CENTER}
-                >
-                    Welcome to AGS!
-                </button>
-                <box />
+                <CenterBar />
                 <menubutton hexpand halign={Gtk.Align.CENTER}>
                     <label label={time()} />
                     <popover>

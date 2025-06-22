@@ -2,7 +2,7 @@ import { App, Gtk } from 'astal/gtk4';
 
 import Hyprland from 'gi://AstalHyprland';
 import style from './style.scss';
-import Bar from './widget/Bar';
+import Bar from './widget/bar';
 function main() {
     const hyprland = Hyprland.get_default();
 

@@ -1,9 +1,8 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{"@theme_fg_color"};
-$bg-color: #{"@theme_bg_color"};
-
+$fg-color: #f8f8f2;
+$bg-color: #282a36;
 window.Bar {
-    background: transparent;
+    background: $bg-color;
     color: $fg-color;
     font-weight: bold;
 
