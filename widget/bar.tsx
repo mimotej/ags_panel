@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk } from 'astal/gtk4';
+import { App, Astal, Gtk, Gdk } from 'astal/gtk3';
 import Hyprland from 'gi://AstalHyprland';
 import { Variable } from 'astal';
 import { LeftBar } from './left_bar';
@@ -24,7 +24,7 @@ export default function Bar(monitor: Gdk.Monitor, hyprland: Hyprland) {
             <centerbox cssName="centerbox">
                 <LeftBar monitor={monitor} hyprland={hyprland} />
                 <CenterBar />
-                <menubutton hexpand halign={Gtk.Align.CENTER}>
+                <menubutton >
                     <label label={time()} />
                     <popover>
                         <Gtk.Calendar />
